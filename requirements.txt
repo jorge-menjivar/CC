@@ -6,4 +6,3 @@ pillow
 jinja2
 opencv-python-headless
 numpy
-keras
