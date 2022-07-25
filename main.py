@@ -12,21 +12,21 @@ import numpy as np
 app = FastAPI(root_path="/")
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
-templates = Jinja2Templates(directory="static/templates")
+templates = Jinja2Templates(directory="static/dist/")
 
 origins = ["http://localhost:8855", "http://localhost:8855/upload_file", "*"]
 
 
 @app.get("/", response_class=HTMLResponse)
 async def display_home(request: Request):
-    return templates.TemplateResponse('home.html', {'request': request})
+    return templates.TemplateResponse('index.html', {'request': request})
 
 
 @app.post("/upload_file")
 async def upload_file(user_image: UploadFile = File(...)):
     image = Image.open(user_image.file)
 
-    np_image = np.asanyarray(image)
+    np_image = np.asarray(image)
     np_image = np.array(np_image, dtype='uint8')
     color = cv.cvtColor(np_image, cv.IMREAD_ANYCOLOR)
 

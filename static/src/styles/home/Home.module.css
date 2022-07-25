@@ -1,0 +1,76 @@
+.main {
+    min-height: 100vh;
+    padding: 12px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: centesr;
+    align-items: center;
+}
+
+.title {
+    margin: 0 0;
+    line-height: 1;
+    font-size: 4rem;
+}
+
+.title,
+.subtitle {
+    text-align: center;
+}
+
+.subtitle {
+    margin: 0 0;
+    line-height: 1.5;
+    font-size: 1.5rem;
+}
+
+.code {
+    border-radius: 5px;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+    color: #0070f3;
+    border-color: #0070f3;
+}
+
+.content {
+    padding: 24px;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+@media (min-width: 600px) {
+    .content {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .content {
+        width: 75%;
+    }
+}
+
+@media (min-width: 1400px) {
+    .content {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1600px) {
+    .content {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1800px) {
+    .content {
+        width: 40%;
+    }
+}/*# sourceMappingURL=Home.module.css.map */

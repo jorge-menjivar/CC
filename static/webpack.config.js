@@ -1,21 +1,75 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
 
-module.exports = {
+const commonConfig = {
+  watch: true,
   mode: "development",
-  devtool: "source-map",
-  entry: {
-    home: "./src/js/home.js"
-  },
-  output: {
-    path: __dirname + "/dist/js",
-    filename: "[name].js"
-  },
-  module:{
-    rules:[
+  devtool: "inline-source-map",
+  // entry: {
+  //   watcher: './src/watcher/watcher.ts'
+  // },
+  // output: {
+  //   path: __dirname + '/dist/',
+  //   // filename: 'preload.js'
+  //   filename: '[name].js'
+  // },
+  module: {
+    rules: [
+      // {
+      //   test: /\.ts$/,
+      //   enforce: 'pre',
+      //   loader: 'tslint-loader',
+      //   options: {
+      //     typeCheck: true,
+      //     emitErrors: true
+      //   }
+      // },
       {
         test: /\.js$|jsx/,
-        exclude: /node_modules/,
-        use: 'babel-loader',
+        use: ['babel-loader'],
+        exclude: /node_modules/
       },
+      {
+        test: /\.ts$|tsx/,
+        use: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.ttf$/,
+        use: ['file-loader']
+      }
     ],
   },
+  resolve: {
+    extensions: ['.js', '.ts', '.tsx', '.jsx', '.json'],
+    fallback: {
+      "path": false
+    }
+  }
 };
+
+module.exports = [
+  Object.assign(
+    {
+      target: 'web',
+      entry: {
+        renderer: './src/ts/index.tsx'
+      },
+      output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: "[name].js"
+      },
+      plugins: [
+        new HtmlWebpackPlugin({
+          template: 'src/templates/index.html',
+          publicPath: "/static/dist"
+        })
+      ]
+    },
+    commonConfig
+  ),
+]
