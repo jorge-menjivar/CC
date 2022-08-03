@@ -1,4 +1,4 @@
-import styles from "../styles/home/Home.module.css";
+import "../styles/home/home.css";
 
 import { styled } from "@stitches/react";
 import {
@@ -98,21 +98,20 @@ const Home: any = () => {
   });
 
   return (
-    <Doc className={styles.container}>
-      <Main className={styles.main} theme={theme}>
-        <div className={styles.content}>
-          <Title className={styles.title} theme={theme}>
-            Welcome!
+    <Doc className="container">
+      <Main className="main" theme={theme}>
+        <div className="content">
+          <Title className="title" theme={theme}>
+            Welcome! This is a title
           </Title>
 
-          <Subtitle className={styles.subtitle} theme={theme}>
-            Have an NFT as gratitude for coming, start by connecting your
-            wallet.
+          <Subtitle className="subtitle" theme={theme}>
+            This is a subtitle
           </Subtitle>
 
-          <H1 theme={theme}>My Story</H1>
-          <Text className={styles.body} theme={theme}>
-            Hi, my name is Jorge Menjivar
+          <H1 theme={theme}>This is H1</H1>
+          <Text className="body" theme={theme}>
+            This is regular text
           </Text>
         </div>
       </Main>
