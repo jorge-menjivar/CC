@@ -22,7 +22,7 @@ const ThemeContext = React.createContext({
 
 //export default ThemeContext;
 
-export function ThemeProvider({ children}) {
+export function ThemeProvider({children}:any) {
   // keeps state of the current theme
   const [dark, setDark] = useState(false);
   const [userPicked, setUserPicked] = useState(false);
